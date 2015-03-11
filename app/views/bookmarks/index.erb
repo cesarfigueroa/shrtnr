@@ -1,0 +1,21 @@
+<%== partial :form %>
+
+<ul class="bookmarks-list" id="js-bookmarks-list">
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <%== partial :bookmark, :scope => bookmark %>
+    </li>
+  <% end %>
+</ul>
+
+<% unless @bookmarks.any? %>
+  <div class="notice" id="js-bookmarks-notice">
+    <p>There are no bookmarks.</p>
+  </div>
+<% end %>
+
+<script type="text/html" id="js-bookmark-template">
+  <%== File.read('app/views/bookmarks/_bookmark.mustache') %>
+</script>
+
+<!-- <a href="javascript:(function(){ var script = document.createElement('script'); script.src = 'http://shrtnr.dev/bookmarklet.js'; document.body.appendChild(script); })();">Drag to Bookmarks Bar</a> -->

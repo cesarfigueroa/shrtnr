@@ -1,0 +1,21 @@
+{
+  "name": "Shrtnr",
+  "version": "1.0.0",
+  "description": "A URL shortener",
+  "author": "Cesar Figueroa",
+  "license": "MIT",
+  "repository": "https://github.com/cesarfigueroa/shrtnr",
+  "dependencies": {
+    "node-sass": "^2.0.1",
+    "uglify-js": "^2.4.16"
+  },
+  "devDependencies": {
+    "fsevents": "^0.3.5"
+  },
+  "scripts": {
+    "assets": "npm run assets:css && npm run assets:js",
+    "assets:css": "node-sass app/assets/stylesheets/application.scss public/assets/stylesheets/application.css --precision=7",
+    "postassets:css": "autoprefixer public/assets/stylesheets/application.css",
+    "assets:js": "cat app/assets/javascripts/*.js | uglifyjs -o public/assets/javascripts/application.js --enclose"
+  }
+}

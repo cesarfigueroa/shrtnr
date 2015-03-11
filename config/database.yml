@@ -1,0 +1,22 @@
+settings: &defaults
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *defaults
+  database: shrtnr_development
+  host: localhost
+
+test:
+  <<: *defaults
+  database: shrtnr_test
+  host: localhost
+
+production:
+  <<: *defaults
+  database: shrtnr_production
+  host: # <host>
+  username: # <username>
+  password: # <password>
